@@ -1,14 +1,14 @@
 // Functional model: Smart Building ECS
 package functional {
-    // Explicit imports of needed value types (granular form proven to work in earlier snapshot)
-    public import SmartBuildingECS::Temperature;
-    public import SmartBuildingECS::Humidity;
-    public import SmartBuildingECS::CO2Concentration;
-    public import SmartBuildingECS::OccupancyCount;
-    public import SmartBuildingECS::Illuminance;
-    // Enumerations temporarily disabled in root; keep placeholder imports commented
-    // public import SmartBuildingECS::ComfortMode;
-    // public import SmartBuildingECS::MaintenanceState;
+    // Local placeholder type definitions (temporary until cross-package import grammar stabilized)
+    partdef Temperature {}
+    partdef Humidity {}
+    partdef CO2Concentration {}
+    partdef OccupancyCount {}
+    partdef Illuminance {}
+    // Enumerations placeholders (not yet active)
+    // enumeration ComfortMode { Standard, Eco, HighComfort }
+    // enumeration MaintenanceState { Nominal, Warning, Fault }
 
     // Local placeholders for scoring/ventilation rate using existing numeric-like types
     // (SysIDE grammar fallback: reuse Temperature for comfortScore, OccupancyCount for ventilationRate magnitude)
@@ -51,7 +51,7 @@ package functional {
         feature humidityIn: Humidity;
         feature co2In: CO2Concentration;
         feature occupancyIn: OccupancyCount;
-        feature maintenanceState: MaintenanceState;
+        // maintenanceState omitted until enumeration active
     }
 
     // Activity composition of overall control loop

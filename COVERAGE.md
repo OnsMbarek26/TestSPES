@@ -6,7 +6,7 @@ This document lists major categories of SysML v2 constructs and where they appea
 |----------|---------------------|-----------------|------|--------|
 | Packages & Namespaces | `package`, imports | `package SmartBuildingECS`, `import requirements` | SmartBuildingRoot.sysml | Implemented |
 | Value Types & Units | `quantitykind`, `unit`, `valuetype` | `TemperatureKind`, `Celsius`, `Temperature` | SmartBuildingRoot.sysml | Implemented |
-| Enumerations | `enumeration` | `ComfortMode`, `ZoneType` | SmartBuildingRoot.sysml | Implemented |
+| Enumerations | `enumeration` | (commented placeholders) | SmartBuildingRoot.sysml / functional.sysml | Commented (pending grammar) |
 | Requirements | `requirement`, attributes | `StakeholderComfortReq` | requirements.sysml | Implemented |
 | Requirement Relations | refine/derive (commented forms) | `SystemComfortRangeReq` refinement comment | requirements.sysml | Represented (commented syntax) |
 | Satisfy | `satisfy` | Comment placeholders | requirements.sysml | Placeholder |
@@ -14,7 +14,7 @@ This document lists major categories of SysML v2 constructs and where they appea
 | Structural Definitions | `partdef` | `SmartBuildingSystem` | SmartBuildingRoot.sysml | Implemented |
 | Structural Usages | `part` | `SmartBuilding : SmartBuildingSystem` | SmartBuildingRoot.sysml | Implemented |
 | Features | `feature` | `zones: Zone[1..*]` | SmartBuildingRoot.sysml | Implemented |
-| Constraints | `constraintdef` | `TemperatureWithinRange` | SmartBuildingRoot.sysml | Implemented |
+| Constraints | `constraintdef` | (commented placeholders) | SmartBuildingRoot.sysml / functional.sysml | Commented (pending grammar) |
 | Actions / Behaviors | (represented via partdefs/actions) | `ControlLoop` (action) | functional.sysml | Draft (needs syntax normalization) |
 | Parametrics | constraint usage binding | ComfortScoreCalc placeholder bind | functional.sysml | Placeholder |
 | Interfaces | interface (represented as partdefs) | `SensorDataInterface` | interfaces.sysml | Draft (needs syntax normalization) |
@@ -26,15 +26,15 @@ This document lists major categories of SysML v2 constructs and where they appea
 | Test / Verification Cases | represented via requirements/comments | `VerificationSupportReq` | requirements.sysml | Placeholder |
 | Performance Constraints | constraintdef | `ResponseTimeConstraint` | functional.sysml | Draft |
 | Energy / Domain Constraints | constraintdef | `EnergyReductionConstraint` | functional.sysml | Draft |
-| Deployment / Technical | partdefs for nodes | `EdgeGateway` | technical.sysml | Draft |
+| Deployment / Technical | partdefs for nodes | `EdgeGateway` | technical.sysml | Draft (imports pending) |
 | Information Model | data snapshot partdef | `ZoneEnvironmentalSnapshot` | information.sysml | Draft |
 | Analytics / Maintenance | partdefs/actions | `PredictMaintenance` | functional.sysml | Draft |
-| Variant Constraints | constraintdef (comment placeholder) | `AdvancedLightingRequiresEnergySaving` | SmartBuildingRoot.sysml | Implemented (commented predicate) |
+| Variant Constraints | constraintdef (comment placeholder) | `AdvancedLightingRequiresEnergySaving` | SmartBuildingRoot.sysml | Commented |
 | Viewpoint Concerns | `viewpoint` concern list | Comfort concern requirement | views.sysml | Draft |
 | Metadata / Attributes | requirement attributes | risk attribute on requirements | requirements.sysml | Implemented |
 
 ## Notes
-1. Some constructs are represented as commented placeholders due to parser/grammar alignment tasks pending (see TODOs).
+1. Many advanced constructs (enumerations, constraints, viewpoints, allocations) are currently commented to maintain a parsable baseline while grammar is validated.
 2. The model focuses on clarity over exhaustive enumeration; additional constructs (flow definitions, explicit binding connectors, succession flows) can be added in future iterations.
 3. For tool evaluation, attempt incremental import: start with `SmartBuildingRoot.sysml` then add other files after syntax normalization.
 
