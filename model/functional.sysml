@@ -1,13 +1,14 @@
 // Functional model: Smart Building ECS
 package functional {
-    // Explicit imports of needed value types and enumerations from root
+    // Explicit imports of needed value types (granular form proven to work in earlier snapshot)
     public import SmartBuildingECS::Temperature;
     public import SmartBuildingECS::Humidity;
     public import SmartBuildingECS::CO2Concentration;
     public import SmartBuildingECS::OccupancyCount;
     public import SmartBuildingECS::Illuminance;
-    public import SmartBuildingECS::ComfortMode;
-    public import SmartBuildingECS::MaintenanceState;
+    // Enumerations temporarily disabled in root; keep placeholder imports commented
+    // public import SmartBuildingECS::ComfortMode;
+    // public import SmartBuildingECS::MaintenanceState;
 
     // Local placeholders for scoring/ventilation rate using existing numeric-like types
     // (SysIDE grammar fallback: reuse Temperature for comfortScore, OccupancyCount for ventilationRate magnitude)
@@ -55,16 +56,14 @@ package functional {
 
     // Activity composition of overall control loop
     partdef ControlLoop {
-        feature zoneComfortMode: ComfortMode;
+        // zoneComfortMode omitted until enumeration grammar confirmed
         // Flow annotation:
         // SenseEnvironment.temperature -> AnalyzeComfort.inputTemperature -> OptimizeEnergy.temperatureIn -> ControlActuators.hvacSetPointIn
     }
 
     // Constraint usage for comfort score calculation (simplified)
-    constraintdef ComfortScoreCalc (t: Temperature, h: Humidity, c: CO2Concentration, o: OccupancyCount, score: Temperature) {
-        // Pseudo-formula expressed as comment; actual math binding may differ per tool
-        // score = 0.4*(1 - |t-22|/10) + 0.2*(1 - |h-50|/30) + 0.2*(1 - c/1000) + 0.2*(1 - o/50)
-    }
+    // Comfort score constraint placeholder commented pending working constraint grammar
+    // constraintdef ComfortScoreCalc (t: Temperature, h: Humidity, c: CO2Concentration, o: OccupancyCount, score: Temperature) { /* formula */ }
 
     // Binding comfort score in analyze action (tool may handle differently; placeholder)
     // bind ComfortScoreCalc (analyze.temperature, analyze.humidity, analyze.co2, analyze.occupancy, analyze.comfortScore);

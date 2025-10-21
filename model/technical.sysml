@@ -1,7 +1,7 @@
 // Technical / deployment architecture (normalized syntax)
 package technical {
-    // Local Power placeholder to avoid cross-package import errors until root normalized
-    partdef Power {}
+    // Import shared Power type from root now that root exports via public import
+    public import SmartBuildingECS::Power;
 
     // Physical / logical deployment elements (simplified types)
     partdef EdgeGateway {

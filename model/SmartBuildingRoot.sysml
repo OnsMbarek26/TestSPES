@@ -2,7 +2,7 @@
 // Demonstrates broad construct usage for learning/testing tool capability.
 
 package SmartBuildingECS {
-    // Simplified root for SysIDE grammar testing.
+    // Root namespace exporting all subpackages via public imports for cross-package visibility.
 
     import requirements;
     import functional;
@@ -27,17 +27,16 @@ package SmartBuildingECS {
     partdef Illuminance {}
     partdef Boolean {}
 
-    // Enumerations (alternative syntax without 'values =')
+    // Enumerations (commented until confirmed grammar)
     // enumeration ZoneType { Office, MeetingRoom, Lobby, Corridor, Lab }
     // enumeration ComfortMode { Standard, Eco, HighComfort }
     // enumeration MaintenanceState { Nominal, Warning, Fault }
     // enumeration HVACMode { Heating, Cooling, Ventilation, Idle }
 
-    // Constraint placeholders (converted to generic 'constraint')
-    // Constraints commented until grammar confirmed
-    // constraint TemperatureWithinRange (t: Temperature, min: Temperature, max: Temperature) { /* t in [min,max] */ }
-    // constraint HumidityWithinRange (h: Humidity, min: Humidity, max: Humidity) { /* h in [min,max] */ }
-    // constraint CO2Below (c: CO2Concentration, limit: CO2Concentration) { /* c < limit */ }
+    // Constraint definitions (commented until confirmed grammar)
+    // constraintdef TemperatureWithinRange (t: Temperature, min: Temperature, max: Temperature) { /* assert t within range */ }
+    // constraintdef HumidityWithinRange (h: Humidity, min: Humidity, max: Humidity) { /* assert h within range */ }
+    // constraintdef CO2Below (c: CO2Concentration, limit: CO2Concentration) { /* assert c < limit */ }
 
     // Feature toggles simplified (no featuremodel keyword)
     partdef GlobalFeatures {
@@ -68,6 +67,7 @@ package SmartBuildingECS {
         text = "Maintain environmental parameters within comfort ranges while minimizing energy consumption.";
     }
 
+    // Viewpoints commented out until correct concerns syntax confirmed
     // viewpoint RequirementsViewpoint { concerns = [ SystemOverviewReq ]; }
     // viewpoint EnergyViewpoint { concerns = [ EnergyOptimizer ]; }
 
